@@ -1,14 +1,15 @@
+
 #include "shell.h"
 
-char **env_fn_cp(void);
-void fn_to_free_env(void);
-char **fn_to_get_env(const char *var);
+char **envir_fn_cp(void);
+void fn_to_free_envir(void);
+char **fn_to_get_envir(const char *var);
 
 /**
- * env_fn_cp - Function create copy of env.
+ * envir_fn_cp - this function create copy of envir.
  * Return: return NULL or double
  */
-char **env_fn_cp(void)
+char **envir_fn_cp(void)
 {
 	char **new_environ;
 	size_t size;
@@ -40,9 +41,9 @@ char **env_fn_cp(void)
 }
 
 /**
- * fn_to_free_env - this function to free env.
+ * fn_to_free_envir - this function to free envir.
  */
-void fn_to_free_env(void)
+void fn_to_free_envir(void)
 {
 	int index;
 
@@ -52,11 +53,11 @@ void fn_to_free_env(void)
 }
 
 /**
- * fn_to_get_env - this function gets env var.
- * @var: name of env var.
- * Return: null or double poiter.
+ * fn_to_get_envir - this function gets envir var.
+ * @var: name of envir var.
+ * Return: null or double ptr.
  */
-char **fn_to_get_env(const char *var)
+char **fn_to_get_envir(const char *var)
 {
 	int index, len;
 

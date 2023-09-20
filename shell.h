@@ -14,34 +14,36 @@
 #define END_OF_FILE -2
 #define EXIT -3
 extern char **environ;
+char *name;
+int hist;
 
 /**
- * struct listnode - new struct type defining a linked listnode.
- * @dir: The directory path.
- * @next: pointer to another struct listnode
+ * struct list_s - A new struct type defining a linked list.
+ * @dir: A directory path.
+ * @next: A pointer to another struct list_s.
  */
 typedef struct listnode
 {
 	char *dir;
 	struct listnode *next;
-} listnodeType;
+} lisType;
 
 /**
- * struct bltnode - New struct type defining bltnode commands.
- * @name: Name of the bltnode command.
- * @f: Function pointer to the bltnode command's function.
+ * struct builtin_s - A new struct type defining builtin commands.
+ * @name: The name of the builtin command.
+ * @f: A function pointer to the builtin command's function.
  */
 typedef struct bltnode
 {
 	char *name;
 	int (*f)(char **argv, char **ourfront);
-} bltnodeType;
+} bltnType;
 
 /**
- * struct alsNode - New struct defining aliases.
- * @name: Name of the alias.
- * @value: Value of the alias.
- * @next: The pointer to another struct alsNode.
+ * struct alsNode - A new struct defining aliases.
+ * @name: The name of the alias.
+ * @value: The value of the alias.
+ * @next: A pointer to another struct alsNode.
  */
 typedef struct alsNode
 {
@@ -71,21 +73,6 @@ void func_freeList(lisType *head);
 /*copy of itoa function*/
 char *_itoa(int num);
 
-/* Builtin Helpers */
-char **envir_fn_cp(void);
-void fn_to_free_envir(void);
-char **fn_to_get_envir(const char *var);
-
-/* Builtins */
-int (*get_builtin(char *command))(char **amgt, char **ourfront);
-int exit_shell(char **amgt, char **ourfront);
-int envir_shell(char **amgt, char __attribute__((__unused__)) **ourfront);
-int set_envir_shell(char **amgt, char __attribute__((__unused__)) **ourfront);
-int unsetEnvShell(char **amgt, char __attribute__((__unused__)) **ourfront);
-int change_fileDir(char **amgt, char __attribute__((__unused__)) **ourfront);
-int set_shellVar(char **amgt, char __attribute__((__unused__)) **ourfront);
-int helper_shell(char **amgt, char __attribute__((__unused__)) **ourfront);
-
 /* Input Helpers */
 void line_handler(char **ourline, ssize_t read);
 void replace_var(char **ourline, int *exeRet);
@@ -106,6 +93,21 @@ char *char_string(char *s, char c);
 int copy_of_spn(char *s, char *accept);
 int compare_string(char *string1, char *string2);
 int ncmp_string(const char *string1, const char *string2, size_t n);
+
+/* Builtins */
+int (*get_builtin(char *command))(char **amgt, char **ourfront);
+int exit_shell(char **amgt, char **ourfront);
+int envir_shell(char **amgt, char __attribute__((__unused__)) **ourfront);
+int set_envir_shell(char **amgt, char __attribute__((__unused__)) **ourfront);
+int unsetEnvShell(char **amgt, char __attribute__((__unused__)) **ourfront);
+int change_fileDir(char **amgt, char __attribute__((__unused__)) **ourfront);
+int set_shellVar(char **amgt, char __attribute__((__unused__)) **ourfront);
+int helper_shell(char **amgt, char __attribute__((__unused__)) **ourfront);
+
+/* Builtin Helpers */
+char **envir_fn_cp(void);
+void fn_to_free_envir(void);
+char **fn_to_get_envir(const char *var);
 
 /* Error Handling */
 int func_createErr(char **amgt, int err);
