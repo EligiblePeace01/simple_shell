@@ -5,13 +5,13 @@ int set_envir_shell(char **amgt, char __attribute__((__unused__)) **ourfront);
 int unsetEnvShell(char **amgt, char __attribute__((__unused__)) **ourfront);
 
 /**
- * env_shell - this function print env used currnetly.
+ * envir_shell - this function print envi used currnetly.
  * @amgt: arrray of amgt.
- * @ourfront: double pointer.
- * Return: return 0 or 1.
+ * @ourfront: double ptr.
+ * Return: return 0 ro 1.
  * Descr: print one arg per line
  */
-int env_shell(char **amgt, char __attribute__((__unused__)) **ourfront)
+int envir_shell(char **amgt, char __attribute__((__unused__)) **ourfront)
 {
 	int index;
 	char nc = '\n';
@@ -30,12 +30,12 @@ int env_shell(char **amgt, char __attribute__((__unused__)) **ourfront)
 }
 
 /**
- * set_env_shell - this function set the env of var.
+ * set_envir_shell - this function set the envir of var.
  * @amgt: array of amgt.
  * @ourfront: dounle ptr.
  * Return: return -1 or 0.
  */
-int set_env_shell(char **amgt, char __attribute__((__unused__)) **ourfront)
+int set_envir_shell(char **amgt, char __attribute__((__unused__)) **ourfront)
 {
 	char **env_var = NULL, **new_environ, *new_value;
 	size_t size;
@@ -80,7 +80,7 @@ int set_env_shell(char **amgt, char __attribute__((__unused__)) **ourfront)
 }
 
 /**
- * unsetEnvShell - this function delete env.
+ * unsetEnvShell - this function delete envir.
  * @amgt: array of amgt.
  * @ourfront: dounle ptr.
  * Return: return -1 or 0.
